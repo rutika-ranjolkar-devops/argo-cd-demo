@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: node-webapp
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/rutika-ranjolkar/argo-cd-demo.git
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: myapp
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automation:
+      selfHeal: true
+      prune: true
