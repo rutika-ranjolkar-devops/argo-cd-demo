@@ -11,11 +11,11 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: myapp
-*test-1 code*
+
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
-*test-1 code*
+
     automation:
       selfHeal: true
       prune: true
